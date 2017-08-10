@@ -105,25 +105,25 @@ The same request using SOAP would have the following form:
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
-      	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      	xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
-      	<soap:Body>
-      		<GetCapabilities xmlns="http://www.opengis.net/wmts/1.0"
-      			xmlns:ows="http://www.opengis.net/ows/1.1"
-      			xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_request.xsd"
-      			service="WMTS">
-      			<ows:AcceptVersions>
-      				<ows:Version>1.0.0</ows:Version>
-      			</ows:AcceptVersions>
-      			<ows:AcceptFormats>
-      				<ows:OutputFormat>application/xml</ows:OutputFormat>
-      			</ows:AcceptFormats>
-      		</GetCapabilities>
-      	</soap:Body>
-      </soap:Envelope>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+      <GetCapabilities xmlns="http://www.opengis.net/wmts/1.0"
+        xmlns:ows="http://www.opengis.net/ows/1.1"
+        xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_request.xsd"
+        service="WMTS">
+        <ows:AcceptVersions>
+          <ows:Version>1.0.0</ows:Version>
+        </ows:AcceptVersions>
+        <ows:AcceptFormats>
+          <ows:OutputFormat>application/xml</ows:OutputFormat>
+        </ows:AcceptFormats>
+      </GetCapabilities>
+    </soap:Body>
+  </soap:Envelope>
 
 Under a resource-oriented style, a representative example would be:
 
@@ -148,183 +148,183 @@ This example was adapted from content in the `WMTS Schemas <http://schemas.openg
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <Capabilities xmlns="http://www.opengis.net/wmts/1.0"
-        xmlns:ows="http://www.opengis.net/ows/1.1"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:gml="http://www.opengis.net/gml"
-        xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd"
-        version="1.0.0">
-      <ows:ServiceIdentification>
-        <ows:Title>World example Web Map Tile Service</ows:Title>
-        <ows:Abstract>Example service that constrains some world layers
-          in the urn:ogc:def:wkss:OGC:1.0:GlobalCRS84Pixel Well-known
-          scale set</ows:Abstract>
-        <ows:Keywords>
-          <ows:Keyword>World</ows:Keyword>
-          <ows:Keyword>Global</ows:Keyword>
-          <ows:Keyword>Digital Elevation Model</ows:Keyword>
-          <ows:Keyword>Administrative Boundaries</ows:Keyword>
-        </ows:Keywords>
-        <ows:ServiceType>OGC WMTS</ows:ServiceType>
-        <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
-        <ows:Fees>none</ows:Fees>
-        <ows:AccessConstraints>none</ows:AccessConstraints>
-      </ows:ServiceIdentification>
-      <ows:ServiceProvider>
-        <ows:ProviderName>UAB-CREAF-MiraMon</ows:ProviderName>
-        <ows:ProviderSite xlink:href="http://www.creaf.uab.es/miramon"/>
-        <ows:ServiceContact>
-          <ows:IndividualName>Joan Maso Pau</ows:IndividualName>
-          <ows:PositionName>Senior Software Engineer</ows:PositionName>
-          <ows:ContactInfo>
-            <ows:Phone>
-              <ows:Voice>+34 93 581 1312</ows:Voice>
-              <ows:Facsimile>+34 93 581 4151</ows:Facsimile>
-            </ows:Phone>
-            <ows:Address>
-              <ows:DeliveryPoint>Fac Ciencies UAB</ows:DeliveryPoint>
-              <ows:City>Bellaterra</ows:City>
-              <ows:AdministrativeArea>Barcelona</ows:AdministrativeArea>
-              <ows:PostalCode>08193</ows:PostalCode>
-              <ows:Country>Spain</ows:Country>
-              <ows:ElectronicMailAddress>joan.maso@uab.es</ows:ElectronicMailAddress>
-            </ows:Address>
-          </ows:ContactInfo>
-        </ows:ServiceContact>
-      </ows:ServiceProvider>
-      <ows:OperationsMetadata>
-        <ows:Operation name="GetCapabilities">
-          <ows:DCP>
-            <ows:HTTP>
-              <ows:Post xlink:href="http://www.opengis.uab.es/cgi-bin/world/MiraMon5_0.cgi?">
-                <ows:Constraint name="PostEncoding">
-                  <ows:AllowedValues>
-                    <ows:Value>SOAP</ows:Value>
-                  </ows:AllowedValues>
-                </ows:Constraint>
-              </ows:Post>
-            </ows:HTTP>
-          </ows:DCP>
-        </ows:Operation>
-        <ows:Operation name="GetTile">
-          <ows:DCP>
-            <ows:HTTP>
-              <ows:Post xlink:href="http://www.opengis.uab.es/cgi-bin/world/MiraMon5_0.cgi?">
-                <ows:Constraint name="PostEncoding">
-                  <ows:AllowedValues>
-                    <ows:Value>SOAP</ows:Value>
-                  </ows:AllowedValues>
-                </ows:Constraint>
-              </ows:Post>
-            </ows:HTTP>
-          </ows:DCP>
-        </ows:Operation>
-      </ows:OperationsMetadata>
-      <Contents>
-        <Layer>
-          <ows:Title>etopo2</ows:Title>
-          <ows:Abstract>ETOPO2 - 2 minute Worldwide Bathymetry/Topography
-            Data taken from National Geophysical Data Center(NGDC) CD-ROM, ETOPO2 Global 2' Elevations, September 2001.
-            <!-- ************************************************* -->
-            <!-- [... additional Abstract information removed ...] -->
-            <!-- ************************************************* -->
-          </ows:Abstract>
-          <ows:WGS84BoundingBox>
-            <ows:LowerCorner>-180 -90</ows:LowerCorner>
-            <ows:UpperCorner>180 90</ows:UpperCorner>
-          </ows:WGS84BoundingBox>
-          <ows:Identifier>etopo2</ows:Identifier>
-          <ows:Metadata xlink:href="http://www.opengis.uab.es/SITiled/world/etopo2/metadata.htm"/>
-          <Style isDefault="true">
-            <ows:Title>default</ows:Title>
-            <ows:Identifier>default</ows:Identifier>
-            <LegendURL format="image/png" xlink:href="http://www.opengis.uab.es/SITiled/world/etopo2/legend.png"/>
-          </Style>
-          <Format>image/png</Format>
-          <InfoFormat>application/gml+xml; version=3.1</InfoFormat>
-          <TileMatrixSetLink>
-            <TileMatrixSet>WholeWorld_CRS_84</TileMatrixSet>
-          </TileMatrixSetLink>
-          <ResourceURL format="image/png" resourceType="tile" template="http://www.opengis.uab.es/SITiled/world/etopo2/default/WholeWorld_CRS_84/{TileMatrix}/{TileRow}/{TileCol}.png"/>
-          <ResourceURL format="application/gml+xml; version=3.1" resourceType="FeatureInfo" template="http://www.opengis.uab.es/SITiled/world/etopo2/default/WholeWorld_CRS_84/{TileMatrix}/{TileRow}/{TileCol}/{J}/{I}.xml"/>
-        </Layer>
-        <Layer>
-          <ows:Title>Administrative Boundaries</ows:Title>
-          <ows:Abstract>The sub Country Administrative Units 1998
-            GeoDataset represents a small-scale world political map.
-            <!-- ************************************************* -->
-            <!-- [... additional Abstract information removed ...] -->
-            <!-- ************************************************* -->
-          </ows:Abstract>
-          <ows:WGS84BoundingBox>
-            <ows:LowerCorner>-180 -90</ows:LowerCorner>
-            <ows:UpperCorner>180 84</ows:UpperCorner>
-          </ows:WGS84BoundingBox>
-          <ows:Identifier>AdminBoundaries</ows:Identifier>
-          <ows:Metadata xlink:href="http://www.opengis.uab.es/SITiled/world/AdminBoundaries/metadata.htm"/>
-          <Style isDefault="true">
-            <ows:Title>default</ows:Title>
-            <ows:Identifier>default</ows:Identifier>
-          </Style>
-          <Format>image/png</Format>
-          <TileMatrixSetLink>
-            <TileMatrixSet>World84-90_CRS_84</TileMatrixSet>
-          </TileMatrixSetLink>
-          <ResourceURL format="image/png" resourceType="tile" template="http://www.opengis.uab.es/SITiled/world/AdminBoundaries/default/World84-90_CRS_84/{TileMatrix}/{TileRow}/{TileCol}.png"/>
-          <ResourceURL format="application/gml+xml; version=3.1" resourceType="FeatureInfo" template="http://www.opengis.uab.es/SITiled/world/AdminBoundaries/default/World84-90_CRS_84/{TileMatrix}/{TileRow}/{TileCol}/{J}/{I}.xml"/>
-        </Layer>
-        <TileMatrixSet>
-          <!-- optional bounding box of data in this CRS -->
-          <ows:Identifier>WholeWorld_CRS_84</ows:Identifier>
-          <ows:SupportedCRS>urn:ogc:def:crs:OGC:1.3:CRS84</ows:SupportedCRS>
-          <WellKnownScaleSet>urn:ogc:def:wkss:OGC:1.0:GlobalCRS84Pixel</WellKnownScaleSet>
-          <TileMatrix>
-            <ows:Identifier>2g</ows:Identifier>
-            <ScaleDenominator>795139219.951954</ScaleDenominator>
-            <!-- top left point of tile matrix bounding box -->
-            <TopLeftCorner>-180 90</TopLeftCorner>
-            <!-- width and height of each tile in pixel units -->
-            <TileWidth>320</TileWidth>
-            <TileHeight>200</TileHeight>
-            <!-- width and height of matrix in tile units -->
-            <MatrixWidth>1</MatrixWidth>
-            <MatrixHeight>1</MatrixHeight>
-          </TileMatrix>
-          <TileMatrix>
-            <ows:Identifier>1g</ows:Identifier>
-            <ScaleDenominator>397569609.975977</ScaleDenominator>
-            <TopLeftCorner>-180 90</TopLeftCorner>
-            <TileWidth>320</TileWidth>
-            <TileHeight>200</TileHeight>
-            <MatrixWidth>2</MatrixWidth>
-            <MatrixHeight>1</MatrixHeight>
-          </TileMatrix>
-          <!-- *********************************************** -->
-          <!-- [... Additional TileMatrix entries removed ...] -->
-          <!-- *********************************************** -->
-        </TileMatrixSet>
-      </Contents>
-      <Themes>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <Capabilities xmlns="http://www.opengis.net/wmts/1.0"
+      xmlns:ows="http://www.opengis.net/ows/1.1"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:gml="http://www.opengis.net/gml"
+      xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd"
+      version="1.0.0">
+    <ows:ServiceIdentification>
+      <ows:Title>World example Web Map Tile Service</ows:Title>
+      <ows:Abstract>Example service that constrains some world layers
+        in the urn:ogc:def:wkss:OGC:1.0:GlobalCRS84Pixel Well-known
+        scale set</ows:Abstract>
+      <ows:Keywords>
+        <ows:Keyword>World</ows:Keyword>
+        <ows:Keyword>Global</ows:Keyword>
+        <ows:Keyword>Digital Elevation Model</ows:Keyword>
+        <ows:Keyword>Administrative Boundaries</ows:Keyword>
+      </ows:Keywords>
+      <ows:ServiceType>OGC WMTS</ows:ServiceType>
+      <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
+      <ows:Fees>none</ows:Fees>
+      <ows:AccessConstraints>none</ows:AccessConstraints>
+    </ows:ServiceIdentification>
+    <ows:ServiceProvider>
+      <ows:ProviderName>UAB-CREAF-MiraMon</ows:ProviderName>
+      <ows:ProviderSite xlink:href="http://www.creaf.uab.es/miramon"/>
+      <ows:ServiceContact>
+        <ows:IndividualName>Joan Maso Pau</ows:IndividualName>
+        <ows:PositionName>Senior Software Engineer</ows:PositionName>
+        <ows:ContactInfo>
+          <ows:Phone>
+            <ows:Voice>+34 93 581 1312</ows:Voice>
+            <ows:Facsimile>+34 93 581 4151</ows:Facsimile>
+          </ows:Phone>
+          <ows:Address>
+            <ows:DeliveryPoint>Fac Ciencies UAB</ows:DeliveryPoint>
+            <ows:City>Bellaterra</ows:City>
+            <ows:AdministrativeArea>Barcelona</ows:AdministrativeArea>
+            <ows:PostalCode>08193</ows:PostalCode>
+            <ows:Country>Spain</ows:Country>
+            <ows:ElectronicMailAddress>joan.maso@uab.es</ows:ElectronicMailAddress>
+          </ows:Address>
+        </ows:ContactInfo>
+      </ows:ServiceContact>
+    </ows:ServiceProvider>
+    <ows:OperationsMetadata>
+      <ows:Operation name="GetCapabilities">
+        <ows:DCP>
+          <ows:HTTP>
+            <ows:Post xlink:href="http://www.opengis.uab.es/cgi-bin/world/MiraMon5_0.cgi?">
+              <ows:Constraint name="PostEncoding">
+                <ows:AllowedValues>
+                  <ows:Value>SOAP</ows:Value>
+                </ows:AllowedValues>
+              </ows:Constraint>
+            </ows:Post>
+          </ows:HTTP>
+        </ows:DCP>
+      </ows:Operation>
+      <ows:Operation name="GetTile">
+        <ows:DCP>
+          <ows:HTTP>
+            <ows:Post xlink:href="http://www.opengis.uab.es/cgi-bin/world/MiraMon5_0.cgi?">
+              <ows:Constraint name="PostEncoding">
+                <ows:AllowedValues>
+                  <ows:Value>SOAP</ows:Value>
+                </ows:AllowedValues>
+              </ows:Constraint>
+            </ows:Post>
+          </ows:HTTP>
+        </ows:DCP>
+      </ows:Operation>
+    </ows:OperationsMetadata>
+    <Contents>
+      <Layer>
+        <ows:Title>etopo2</ows:Title>
+        <ows:Abstract>ETOPO2 - 2 minute Worldwide Bathymetry/Topography
+          Data taken from National Geophysical Data Center(NGDC) CD-ROM, ETOPO2 Global 2' Elevations, September 2001.
+          <!-- ***************************************************** -->
+          <!-- [... insert additional Abstract information here ...] -->
+          <!-- ***************************************************** -->
+        </ows:Abstract>
+        <ows:WGS84BoundingBox>
+          <ows:LowerCorner>-180 -90</ows:LowerCorner>
+          <ows:UpperCorner>180 90</ows:UpperCorner>
+        </ows:WGS84BoundingBox>
+        <ows:Identifier>etopo2</ows:Identifier>
+        <ows:Metadata xlink:href="http://www.opengis.uab.es/SITiled/world/etopo2/metadata.htm"/>
+        <Style isDefault="true">
+          <ows:Title>default</ows:Title>
+          <ows:Identifier>default</ows:Identifier>
+          <LegendURL format="image/png" xlink:href="http://www.opengis.uab.es/SITiled/world/etopo2/legend.png"/>
+        </Style>
+        <Format>image/png</Format>
+        <InfoFormat>application/gml+xml; version=3.1</InfoFormat>
+        <TileMatrixSetLink>
+          <TileMatrixSet>WholeWorld_CRS_84</TileMatrixSet>
+        </TileMatrixSetLink>
+        <ResourceURL format="image/png" resourceType="tile" template="http://www.opengis.uab.es/SITiled/world/etopo2/default/WholeWorld_CRS_84/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+        <ResourceURL format="application/gml+xml; version=3.1" resourceType="FeatureInfo" template="http://www.opengis.uab.es/SITiled/world/etopo2/default/WholeWorld_CRS_84/{TileMatrix}/{TileRow}/{TileCol}/{J}/{I}.xml"/>
+      </Layer>
+      <Layer>
+        <ows:Title>Administrative Boundaries</ows:Title>
+        <ows:Abstract>The sub Country Administrative Units 1998
+          GeoDataset represents a small-scale world political map.
+          <!-- ***************************************************** -->
+          <!-- [... insert additional Abstract information here ...] -->
+          <!-- ***************************************************** -->
+        </ows:Abstract>
+        <ows:WGS84BoundingBox>
+          <ows:LowerCorner>-180 -90</ows:LowerCorner>
+          <ows:UpperCorner>180 84</ows:UpperCorner>
+        </ows:WGS84BoundingBox>
+        <ows:Identifier>AdminBoundaries</ows:Identifier>
+        <ows:Metadata xlink:href="http://www.opengis.uab.es/SITiled/world/AdminBoundaries/metadata.htm"/>
+        <Style isDefault="true">
+          <ows:Title>default</ows:Title>
+          <ows:Identifier>default</ows:Identifier>
+        </Style>
+        <Format>image/png</Format>
+        <TileMatrixSetLink>
+          <TileMatrixSet>World84-90_CRS_84</TileMatrixSet>
+        </TileMatrixSetLink>
+        <ResourceURL format="image/png" resourceType="tile" template="http://www.opengis.uab.es/SITiled/world/AdminBoundaries/default/World84-90_CRS_84/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+        <ResourceURL format="application/gml+xml; version=3.1" resourceType="FeatureInfo" template="http://www.opengis.uab.es/SITiled/world/AdminBoundaries/default/World84-90_CRS_84/{TileMatrix}/{TileRow}/{TileCol}/{J}/{I}.xml"/>
+      </Layer>
+      <TileMatrixSet>
+        <!-- optional bounding box of data in this CRS -->
+        <ows:Identifier>WholeWorld_CRS_84</ows:Identifier>
+        <ows:SupportedCRS>urn:ogc:def:crs:OGC:1.3:CRS84</ows:SupportedCRS>
+        <WellKnownScaleSet>urn:ogc:def:wkss:OGC:1.0:GlobalCRS84Pixel</WellKnownScaleSet>
+        <TileMatrix>
+          <ows:Identifier>2g</ows:Identifier>
+          <ScaleDenominator>795139219.951954</ScaleDenominator>
+          <!-- top left point of tile matrix bounding box -->
+          <TopLeftCorner>-180 90</TopLeftCorner>
+          <!-- width and height of each tile in pixel units -->
+          <TileWidth>320</TileWidth>
+          <TileHeight>200</TileHeight>
+          <!-- width and height of matrix in tile units -->
+          <MatrixWidth>1</MatrixWidth>
+          <MatrixHeight>1</MatrixHeight>
+        </TileMatrix>
+        <TileMatrix>
+          <ows:Identifier>1g</ows:Identifier>
+          <ScaleDenominator>397569609.975977</ScaleDenominator>
+          <TopLeftCorner>-180 90</TopLeftCorner>
+          <TileWidth>320</TileWidth>
+          <TileHeight>200</TileHeight>
+          <MatrixWidth>2</MatrixWidth>
+          <MatrixHeight>1</MatrixHeight>
+        </TileMatrix>
+        <!-- *************************************************** -->
+        <!-- [... insert additional TileMatrix entries here ...] -->
+        <!-- *************************************************** -->
+      </TileMatrixSet>
+    </Contents>
+    <Themes>
+      <Theme>
+        <ows:Title>Foundation</ows:Title>
+        <ows:Abstract>World reference data</ows:Abstract>
+        <ows:Identifier>Foundation</ows:Identifier>
         <Theme>
-          <ows:Title>Foundation</ows:Title>
-          <ows:Abstract>World reference data</ows:Abstract>
-          <ows:Identifier>Foundation</ows:Identifier>
-          <Theme>
-            <ows:Title>Digital Elevation Model</ows:Title>
-            <ows:Identifier>DEM</ows:Identifier>
-            <LayerRef>etopo2</LayerRef>
-          </Theme>
-          <Theme>
-            <ows:Title>Administrative Boundaries</ows:Title>
-            <ows:Identifier>AdmBoundaries</ows:Identifier>
-            <LayerRef>AdminBoundaries</LayerRef>
-          </Theme>
+          <ows:Title>Digital Elevation Model</ows:Title>
+          <ows:Identifier>DEM</ows:Identifier>
+          <LayerRef>etopo2</LayerRef>
         </Theme>
-      </Themes>
-      <WSDL xlink:role="http://schemas.xmlsoap.org/wsdl/1.0" xlink:show="none" xlink:type="simple" xlink:href="wmtsConcrete.wsdl"/>
-    </Capabilities>
+        <Theme>
+          <ows:Title>Administrative Boundaries</ows:Title>
+          <ows:Identifier>AdmBoundaries</ows:Identifier>
+          <LayerRef>AdminBoundaries</LayerRef>
+        </Theme>
+      </Theme>
+    </Themes>
+    <WSDL xlink:role="http://schemas.xmlsoap.org/wsdl/1.0" xlink:show="none" xlink:type="simple" xlink:href="wmtsConcrete.wsdl"/>
+  </Capabilities>
 
 
 Example GetCapabilities Response: SOAP
@@ -334,17 +334,17 @@ An example of a compliant WMTS service's ServiceMetadata document in response to
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-          xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
-      	<soap:Body>
-        <!-- ****************************** -->
-        <!-- [... Capabilities go here ...] -->
-        <!-- ****************************** -->
-      	</soap:Body>
-      </soap:Envelope>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+      <!-- ********************************** -->
+      <!-- [... insert Capabilities here ...] -->
+      <!-- ********************************** -->
+    </soap:Body>
+  </soap:Envelope>
 
 
 Example GetCapabilities Response: Resource-Oriented
@@ -462,27 +462,27 @@ The same request using SOAP would have the following form:
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
-      	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      	xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
-      	<soap:Body>
-      		<GetTile xmlns="http://www.opengis.net/wmts/1.0"
-      			xmlns:ows="http://www.opengis.net/ows/1.1"
-      			xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetTile_request.xsd"
-      			service="WMTS" version="1.0.0">
-      			<Layer>coastlines</Layer>
-      			<Style>blue</Style>
-      			<Format>image/png</Format>
-      			<DimensionNameValue name="TIME">2007-06</DimensionNameValue>
-      			<TileMatrixSet>coastlinesInCrs84</TileMatrixSet>
-      			<TileMatrix>5e6</TileMatrix>
-      			<TileRow>42</TileRow>
-      			<TileCol>112</TileCol>
-      		</GetTile>
-      	</soap:Body>
-      </soap:Envelope>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+      <GetTile xmlns="http://www.opengis.net/wmts/1.0"
+        xmlns:ows="http://www.opengis.net/ows/1.1"
+        xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetTile_request.xsd"
+        service="WMTS" version="1.0.0">
+        <Layer>coastlines</Layer>
+        <Style>blue</Style>
+        <Format>image/png</Format>
+        <DimensionNameValue name="TIME">2007-06</DimensionNameValue>
+        <TileMatrixSet>coastlinesInCrs84</TileMatrixSet>
+        <TileMatrix>5e6</TileMatrix>
+        <TileRow>42</TileRow>
+        <TileCol>112</TileCol>
+      </GetTile>
+    </soap:Body>
+  </soap:Envelope>
 
 Under a resource-oriented style, a representative example would be:
 
@@ -504,26 +504,26 @@ An example of a compliant WMTS service's response to a procedural-oriented SOAP-
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
-      	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      	xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
-      	<soap:Body>
-      		<BinaryPayload xmlns="http://www.opengis.net/wmts/1.0"
-      			xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsPayload_response.xsd">
-      			<Format>image/png</Format>
-      			<BinaryContent>
-      				<![CDATA[iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGP
-      C/xhBQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9YGARc5KB0XV+IA
-      AAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAF1J
-      REFUGNO9zL0NglAAxPEfdLTs4BZM4DIO4C7OwQg2JoQ9LE1exdlYvBBeZ7jq
-      ch9//q1uH4TLzw4d6+ErXMMcXuHWxId3KOETnnXXV6MJpcq2MLaI97CER3N0
-      vr4MkhoXe0rZigAAAABJRU5ErkJggg==]]>
-      			</BinaryContent>
-      		</BinaryPayload>
-      	</soap:Body>
-      </soap:Envelope>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+      <BinaryPayload xmlns="http://www.opengis.net/wmts/1.0"
+        xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsPayload_response.xsd">
+        <Format>image/png</Format>
+        <BinaryContent>
+          <![CDATA[iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGP
+          C/xhBQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9YGARc5KB0XV+IA
+          AAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAF1J
+          REFUGNO9zL0NglAAxPEfdLTs4BZM4DIO4C7OwQg2JoQ9LE1exdlYvBBeZ7jq
+          ch9//q1uH4TLzw4d6+ErXMMcXuHWxId3KOETnnXXV6MJpcq2MLaI97CER3N0
+          vr4MkhoXe0rZigAAAABJRU5ErkJggg==]]>
+        </BinaryContent>
+      </BinaryPayload>
+    </soap:Body>
+  </soap:Envelope>
 
 
 Example GetFeatureInfo Requests
@@ -553,32 +553,32 @@ The same request using SOAP would have the following form. Note that the followi
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
-      	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      	xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
-      	<soap:Body>
-      		<GetFeatureInfo  xmlns="http://www.opengis.net/wmts/1.0"
-      			xmlns:ows="http://www.opengis.net/ows/1.1"
-      			xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetFeatureInfo_request.xsd"
-      			service="WMTS" version="1.0.0">
-      			<GetTile service="WMTS" version="1.0.0">
-      				<Layer>coastlines</Layer>
-      				<Style>blue</Style>
-      				<Format>image/png</Format>
-      				<DimensionNameValue name="TIME">2007-06</DimensionNameValue>
-      				<TileMatrixSet>coastlinesInCrs84</TileMatrixSet>
-      				<TileMatrix>5e6</TileMatrix>
-      				<TileRow>42</TileRow>
-      				<TileCol>112</TileCol>
-      			</GetTile>
-      			<J>23</J>
-      			<I>35</I>
-      			<InfoFormat>text/html</InfoFormat>
-      		</GetFeatureInfo>
-      	</soap:Body>
-      </soap:Envelope>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+      <GetFeatureInfo  xmlns="http://www.opengis.net/wmts/1.0"
+        xmlns:ows="http://www.opengis.net/ows/1.1"
+        xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetFeatureInfo_request.xsd"
+        service="WMTS" version="1.0.0">
+        <GetTile service="WMTS" version="1.0.0">
+          <Layer>coastlines</Layer>
+          <Style>blue</Style>
+          <Format>image/png</Format>
+          <DimensionNameValue name="TIME">2007-06</DimensionNameValue>
+          <TileMatrixSet>coastlinesInCrs84</TileMatrixSet>
+          <TileMatrix>5e6</TileMatrix>
+          <TileRow>42</TileRow>
+          <TileCol>112</TileCol>
+        </GetTile>
+        <J>23</J>
+        <I>35</I>
+        <InfoFormat>text/html</InfoFormat>
+      </GetFeatureInfo>
+    </soap:Body>
+  </soap:Envelope>
 
 
 Under a resource-oriented style, a representative example would be:
@@ -595,23 +595,23 @@ An example of a compliant WMTS service's POX response to a procedural-oriented G
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <ReguralGridedElevations xmlns="http://www.opengis.uab.es/SITiled/world/etopo2" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.uab.es/SITiled/world/etopo2 wmtsGetFeatureInfo_response_GML.xsd">
-      	<gml:featureMember>
-      		<GridPoint_etopo2>
-      			<elevation>503.0</elevation>
-      			<TileRow>1</TileRow>
-      			<TileCol>2</TileCol>
-      			<J>86</J>
-      			<I>132</I>
-      			<Geometry>
-      				<gml:Point srsDimension="2" srsName="urn:ogc:def:crs:OGC:1.3:CRS84">
-      					<gml:pos>2.50 42.22</gml:pos>
-      				</gml:Point>
-      			</Geometry>
-      		</GridPoint_etopo2>
-      	</gml:featureMember>
-      </ReguralGridedElevations>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <ReguralGridedElevations xmlns="http://www.opengis.uab.es/SITiled/world/etopo2" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.uab.es/SITiled/world/etopo2 wmtsGetFeatureInfo_response_GML.xsd">
+    <gml:featureMember>
+      <GridPoint_etopo2>
+        <elevation>503.0</elevation>
+        <TileRow>1</TileRow>
+        <TileCol>2</TileCol>
+        <J>86</J>
+        <I>132</I>
+        <Geometry>
+          <gml:Point srsDimension="2" srsName="urn:ogc:def:crs:OGC:1.3:CRS84">
+            <gml:pos>2.50 42.22</gml:pos>
+          </gml:Point>
+        </Geometry>
+      </GridPoint_etopo2>
+    </gml:featureMember>
+  </ReguralGridedElevations>
 
 
 Example GetFeatureInfo Response: SOAP
@@ -621,31 +621,31 @@ An example of a compliant WMTS service's response to a procedural-oriented SOAP-
 
 .. code-block:: xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
-      	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      	xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
-      	<soap:Body>
-      		<FeatureInfoResponse xmlns="http://www.opengis.net/wmts/1.0"
-      			xmlns:gml="http://www.opengis.net/gml"
-      			xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetFeatureInfo_response.xsd">
-      			<ReguralGridedElevations xmlns="http://www.opengis.uab.es/SITiled/world/etopo2"
-      				xmlns:gml="http://www.opengis.net/gml"
-      				xsi:schemaLocation="http://www.opengis.uab.es/SITiled/world/etopo2 wmtsGetFeatureInfo_response_GML.xsd">
-      				<gml:featureMember>
-      					<GridPoint_etopo2>
-      						<elevation>503.0</elevation>
-      						<TileRow>42</TileRow>
-      						<TileCol>112</TileCol>
-      						<J>23</J>
-      						<I>35</I>
-      					</GridPoint_etopo2>
-      				</gml:featureMember>
-      			</ReguralGridedElevations>
-      		</FeatureInfoResponse>
-      	</soap:Body>
-      </soap:Envelope>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+      <FeatureInfoResponse xmlns="http://www.opengis.net/wmts/1.0"
+        xmlns:gml="http://www.opengis.net/gml"
+        xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetFeatureInfo_response.xsd">
+        <ReguralGridedElevations xmlns="http://www.opengis.uab.es/SITiled/world/etopo2"
+          xmlns:gml="http://www.opengis.net/gml"
+          xsi:schemaLocation="http://www.opengis.uab.es/SITiled/world/etopo2 wmtsGetFeatureInfo_response_GML.xsd">
+          <gml:featureMember>
+            <GridPoint_etopo2>
+              <elevation>503.0</elevation>
+              <TileRow>42</TileRow>
+              <TileCol>112</TileCol>
+              <J>23</J>
+              <I>35</I>
+            </GridPoint_etopo2>
+          </gml:featureMember>
+        </ReguralGridedElevations>
+      </FeatureInfoResponse>
+    </soap:Body>
+  </soap:Envelope>
 
 
 
